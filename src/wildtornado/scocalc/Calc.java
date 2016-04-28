@@ -4,6 +4,7 @@ import wildtornado.scocalc.companies.Company;
 import wildtornado.scocalc.companies.GenericCompany;
 import wildtornado.scocalc.companies.JenkyCompany;
 import wildtornado.scocalc.objects.DataInput;
+import wildtornado.scocalc.objects.Score;
 
 public class Calc {
 
@@ -22,7 +23,7 @@ public class Calc {
         }
     }
 
-    public int generateScore() {
+    public Score generateScore() {
         return this.company.generateScore();
     }
 }

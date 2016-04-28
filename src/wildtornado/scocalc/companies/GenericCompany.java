@@ -1,24 +1,26 @@
 package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.objects.DataInput;
+import wildtornado.scocalc.objects.Score;
 
 public class GenericCompany extends BaseCompany {
-
-    private final int metricAmount = 7;
 
     public GenericCompany(DataInput dp) {
         this.dp = dp;
     }
 
-    public int generateScore() {
-        this.score += CalculateCodeComplexity(dp.getCodeComplexity());
-        this.score += CalculateCodeDuplicationDensity(dp.getCodeDuplicationDensity());
-        this.score += CalculateCodeViolationsDensity(dp.getCodeViolationsDensity());
-        this.score += CalculateCommentsPercentage(dp.getCommentPercentage());
-        this.score += CalculateLinesOfCode(dp.getLinesOfCode());
-        this.score += CalculateTechnicalDebt(dp.getTechnicalDebt());
-        this.score += CalculateTestCoverage(dp.getNumberOfTests());
-        return this.score;
+    public Score generateScore() {
+        score.setMetricsEnabledAmount(7);
+
+        CalculateCodeComplexity();
+        CalculateCodeDuplicationDensity();
+        CalculateCodeViolationsDensity();
+        CalculateCommentsPercentage();
+        CalculateLinesOfCode();
+        CalculateTechnicalDebt();
+        CalculateTestCoverage();
+        score.setTotalScore(score.getTotalScore() / score.getMetricsEnabledAmount());
+        return score;
     }
 
 }

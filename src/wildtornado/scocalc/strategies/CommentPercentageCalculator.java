@@ -7,7 +7,7 @@ public class CommentPercentageCalculator extends BaseCalculator {
     }
 
     public void generate() {
-        this.result = score + val;
+        this.result = val;
     }
 
 }

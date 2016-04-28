@@ -1,21 +1,23 @@
 package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.objects.DataInput;
+import wildtornado.scocalc.objects.Score;
 
 public class JenkyCompany extends BaseCompany {
-
-    private final int metricAmount = 5;
 
     public JenkyCompany(DataInput dp) {
         this.dp = dp;
     }
 
-    public int generateScore() {
-        this.score += CalculateCodeComplexity(dp.getCodeComplexity());
-        this.score += CalculateCodeDuplicationDensity(dp.getCodeDuplicationDensity());
-        this.score += CalculateCodeViolationsDensity(dp.getCodeViolationsDensity());
-        this.score += CalculateCommentsPercentage(dp.getCommentPercentage());
-        this.score += CalculateLinesOfCode(dp.getLinesOfCode());
-        return this.score;
+    public Score generateScore() {
+        score.setMetricsEnabledAmount(5);
+
+        CalculateCodeComplexity();
+        CalculateCodeDuplicationDensity();
+        CalculateCodeViolationsDensity();
+        CalculateCommentsPercentage();
+        CalculateLinesOfCode();
+        score.setTotalScore(score.getTotalScore() / score.getMetricsEnabledAmount());
+        return score;
     }
 }

@@ -1,50 +1,51 @@
 package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.objects.DataInput;
+import wildtornado.scocalc.objects.Score;
 import wildtornado.scocalc.strategies.*;
 
 public abstract class BaseCompany implements Company {
 
-    protected int score = 0;
     protected DataInput dp;
+    protected Score score = new Score();
 
-    public int generateScore() {
-        return 0;
+    public Score generateScore() {
+        return new Score();
     }
 
-    public int CalculateCodeComplexity(int val) {
-        Calculator calc = new CodeComplexityCalculator(val);
-        return calc.run();
+    public void CalculateCodeComplexity() {
+        score.setCodeComplexityScore(dp.getCodeComplexity());
+        score.addTotalScore(score.getCodeComplexityScore());
     }
 
-    public int CalculateCodeDuplicationDensity(int val) {
-        Calculator calc = new CodeDuplicationDensityCalculator(val);
-        return calc.run();
+    public void CalculateCodeDuplicationDensity() {
+        score.setCodeDuplicationScore(dp.getCodeDuplicationDensity());
+        score.addTotalScore(score.getCodeDuplicationScore());
     }
 
-    public int CalculateCodeViolationsDensity(int val) {
-        Calculator calc = new CodeViolationsDensityCalculator(val);
-        return calc.run();
+    public void CalculateCodeViolationsDensity() {
+        score.setCodeViolationsScore(dp.getCodeViolationsDensity());
+        score.addTotalScore(score.getCodeViolationsScore());
     }
 
-    public int CalculateCommentsPercentage(int val) {
-        Calculator calc = new CommentPercentageCalculator(val);
-        return calc.run();
+    public void CalculateCommentsPercentage() {
+        score.setCommentPercentageScore(dp.getCommentPercentage());
+        score.addTotalScore(score.getCommentPercentageScore());
     }
 
-    public int CalculateLinesOfCode(int val) {
-        Calculator calc = new LinesOfCodeCalculator(val);
-        return calc.run();
+    public void CalculateLinesOfCode() {
+        score.setLinesOfCodeScore(dp.getLinesOfCode());
+        score.addTotalScore(score.getLinesOfCodeScore());
     }
 
-    public int CalculateTechnicalDebt(int val) {
-        Calculator calc = new TechnicalDebtCalculator(val);
-        return calc.run();
+    public void CalculateTechnicalDebt() {
+        score.setTechnicalDebtScore(dp.getTechnicalDebt());
+        score.addTotalScore(score.getTechnicalDebtScore());
     }
 
-    public int CalculateTestCoverage(int val) {
-        Calculator calc = new TestCoverageCalculator(val);
-        return calc.run();
+    public void CalculateTestCoverage() {
+        score.setTestCoverageScore(dp.getNumberOfTests());
+        score.addTotalScore(score.getTestCoverageScore());
     }
 
 }

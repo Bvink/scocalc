@@ -1,21 +1,23 @@
 package wildtornado.scocalc.companies;
 
+import wildtornado.scocalc.objects.Score;
+
 public interface Company {
 
-    public int generateScore();
+    public Score generateScore();
 
-    public int CalculateCodeComplexity(int val);
+    public void CalculateCodeComplexity();
 
-    public int CalculateCodeDuplicationDensity(int val);
+    public void CalculateCodeDuplicationDensity();
 
-    public int CalculateCodeViolationsDensity(int val);
+    public void CalculateCodeViolationsDensity();
 
-    public int CalculateCommentsPercentage(int val);
+    public void CalculateCommentsPercentage();
 
-    public int CalculateLinesOfCode(int val);
+    public void CalculateLinesOfCode();
 
-    public int CalculateTechnicalDebt(int val);
+    public void CalculateTechnicalDebt();
 
-    public int CalculateTestCoverage(int val);
+    public void CalculateTestCoverage();
 
 }
