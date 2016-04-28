@@ -19,7 +19,7 @@ public class GenericCompany extends BaseCompany {
         CalculateLinesOfCode();
         CalculateTechnicalDebt();
         CalculateTestCoverage();
-        score.setTotalScore(score.getTotalScore() / score.getMetricsEnabledAmount());
+        score.setFinalScore(score.getTotalScore() / score.getMetricsEnabledAmount());
         return score;
     }
 

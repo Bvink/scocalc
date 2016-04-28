@@ -14,6 +14,7 @@ public class Score {
     private int technicalDebtScore;
     private int testCoverageScore;
     private int totalScore;
+    private int finalScore;
 
     public void setMetricsEnabledAmount(int metricsEnabledAmount) {
         this.metricsEnabledAmount = metricsEnabledAmount;
@@ -96,5 +97,13 @@ public class Score {
 
     public void addTotalScore(int score) {
         this.totalScore += score;
+    }
+
+    public int getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(int finalScore) {
+        this.finalScore = finalScore;
     }
 }
