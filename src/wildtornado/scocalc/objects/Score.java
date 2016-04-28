@@ -28,7 +28,7 @@ public class Score {
         return codeComplexityScore;
     }
 
-    public void setCodeComplexityScore(int codeComplexityScore) {
+    public void calculateCodeComplexityScore(int codeComplexityScore) {
         Calculator calc = new CodeComplexityCalculator(codeComplexityScore);
         this.codeComplexityScore = calc.run();
     }
@@ -37,7 +37,7 @@ public class Score {
         return codeDuplicationScore;
     }
 
-    public void setCodeDuplicationScore(int codeDuplicationScore) {
+    public void calculateCodeDuplicationScore(int codeDuplicationScore) {
         Calculator calc = new CodeDuplicationDensityCalculator(codeDuplicationScore);
         this.codeDuplicationScore = calc.run();
     }
@@ -46,7 +46,7 @@ public class Score {
         return codeViolationsScore;
     }
 
-    public void setCodeViolationsScore(int codeViolationsScore) {
+    public void calculateCodeViolationsScore(int codeViolationsScore) {
         Calculator calc = new CodeViolationsDensityCalculator(codeViolationsScore);
         this.codeViolationsScore = calc.run();
     }
@@ -55,7 +55,7 @@ public class Score {
         return commentPercentageScore;
     }
 
-    public void setCommentPercentageScore(int commentPercentageScore) {
+    public void calculateCommentPercentageScore(int commentPercentageScore) {
         Calculator calc = new CommentPercentageCalculator(commentPercentageScore);
         this.commentPercentageScore = calc.run();
     }
@@ -64,7 +64,7 @@ public class Score {
         return linesOfCodeScore;
     }
 
-    public void setLinesOfCodeScore(int linesOfCodeScore) {
+    public void calculateLinesOfCodeScore(int linesOfCodeScore) {
         Calculator calc = new LinesOfCodeCalculator(linesOfCodeScore);
         this.linesOfCodeScore = calc.run();
     }
@@ -73,7 +73,7 @@ public class Score {
         return technicalDebtScore;
     }
 
-    public void setTechnicalDebtScore(int technicalDebtScore) {
+    public void calculateTechnicalDebtScore(int technicalDebtScore) {
         Calculator calc = new TechnicalDebtCalculator(technicalDebtScore);
         this.technicalDebtScore = calc.run();
     }
@@ -82,17 +82,13 @@ public class Score {
         return testCoverageScore;
     }
 
-    public void setTestCoverageScore(int testCoverageScore) {
+    public void calculateTestCoverageScore(int testCoverageScore) {
         Calculator calc = new TestCoverageCalculator(testCoverageScore);
         this.testCoverageScore = calc.run();
     }
 
     public int getTotalScore() {
         return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
     }
 
     public void addTotalScore(int score) {
@@ -103,7 +99,7 @@ public class Score {
         return finalScore;
     }
 
-    public void setFinalScore(int finalScore) {
-        this.finalScore = finalScore;
+    public void calculateFinalScore() {
+        this.finalScore = this.totalScore / this.metricsEnabledAmount;
     }
 }

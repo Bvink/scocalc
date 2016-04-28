@@ -17,7 +17,7 @@ public class JenkyCompany extends BaseCompany {
         CalculateCodeViolationsDensity();
         CalculateCommentsPercentage();
         CalculateLinesOfCode();
-        score.setFinalScore(score.getTotalScore() / score.getMetricsEnabledAmount());
+        score.calculateFinalScore();
         return score;
     }
 }
