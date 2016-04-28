@@ -1,6 +1,6 @@
 package wildtornado.scocalc.strategies;
 
-public class BaseCalculator implements Calculator {
+public abstract class BaseCalculator implements Calculator {
 
     protected int val;
     protected final int maxScore = 10000;
