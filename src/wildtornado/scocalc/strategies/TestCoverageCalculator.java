@@ -2,8 +2,12 @@ package wildtornado.scocalc.strategies;
 
 public class TestCoverageCalculator extends BaseCalculator {
 
+    public TestCoverageCalculator(int val) {
+        this.val = val;
+    }
+
     public void generate() {
-        this.result = score +  (int) Math.floor(val);
+        this.result = score + val;
     }
 
 }
