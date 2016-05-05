@@ -28,7 +28,7 @@ public class Score {
         return codeComplexityScore;
     }
 
-    public void calculateCodeComplexityScore(int codeComplexityScore) {
+    public void calculateCodeComplexityScore(double codeComplexityScore) {
         Calculator calc = new CodeComplexityCalculator(codeComplexityScore);
         this.codeComplexityScore = calc.run();
     }
@@ -37,7 +37,7 @@ public class Score {
         return codeDuplicationScore;
     }
 
-    public void calculateCodeDuplicationScore(int codeDuplicationScore) {
+    public void calculateCodeDuplicationScore(double codeDuplicationScore) {
         Calculator calc = new CodeDuplicationDensityCalculator(codeDuplicationScore);
         this.codeDuplicationScore = calc.run();
     }
@@ -46,7 +46,7 @@ public class Score {
         return codeViolationsScore;
     }
 
-    public void calculateCodeViolationsScore(int codeViolationsScore) {
+    public void calculateCodeViolationsScore(double codeViolationsScore) {
         Calculator calc = new CodeViolationsDensityCalculator(codeViolationsScore);
         this.codeViolationsScore = calc.run();
     }
@@ -55,7 +55,7 @@ public class Score {
         return commentPercentageScore;
     }
 
-    public void calculateCommentPercentageScore(int commentPercentageScore) {
+    public void calculateCommentPercentageScore(double commentPercentageScore) {
         Calculator calc = new CommentPercentageCalculator(commentPercentageScore);
         this.commentPercentageScore = calc.run();
     }
@@ -64,7 +64,7 @@ public class Score {
         return linesOfCodeScore;
     }
 
-    public void calculateLinesOfCodeScore(int linesOfCodeScore) {
+    public void calculateLinesOfCodeScore(double linesOfCodeScore) {
         Calculator calc = new LinesOfCodeCalculator(linesOfCodeScore);
         this.linesOfCodeScore = calc.run();
     }
@@ -73,7 +73,7 @@ public class Score {
         return technicalDebtScore;
     }
 
-    public void calculateTechnicalDebtScore(int technicalDebtScore) {
+    public void calculateTechnicalDebtScore(double technicalDebtScore) {
         Calculator calc = new TechnicalDebtCalculator(technicalDebtScore);
         this.technicalDebtScore = calc.run();
     }
@@ -82,7 +82,7 @@ public class Score {
         return testCoverageScore;
     }
 
-    public void calculateTestCoverageScore(int testCoverageScore) {
+    public void calculateTestCoverageScore(double testCoverageScore) {
         Calculator calc = new TestCoverageCalculator(testCoverageScore);
         this.testCoverageScore = calc.run();
     }

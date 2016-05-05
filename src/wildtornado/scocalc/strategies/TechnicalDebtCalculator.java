@@ -2,12 +2,12 @@ package wildtornado.scocalc.strategies;
 
 public class TechnicalDebtCalculator extends BaseCalculator {
 
-    public TechnicalDebtCalculator(int val) {
+    public TechnicalDebtCalculator(double val) {
         this.val = val;
     }
 
     public void generate() {
-        this.result = val;
+        this.result = (int) val;
     }
 
 }

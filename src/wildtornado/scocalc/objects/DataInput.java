@@ -7,31 +7,31 @@ public class DataInput {
 
     //Code complexity is a value of minimum 1 that goes up, the larger it is, the worse.
     //The format is XXX.00
-    private int codeComplexity;
+    private double codeComplexity;
 
     //Code duplication is a percentage of how much of the code is duplicate.
     //The format is XXX.00
-    private int codeDuplicationDensity;
+    private double codeDuplicationDensity;
 
     //Code duplication is a percentage of how much of the code is duplicate.
     //The format is XXX.00
-    private int codeViolationsDensity;
+    private double codeViolationsDensity;
 
     //The amount of unit tests performed, each one gives bonus points.
     //The format is XXX.00
-    private int numberOfTests;
+    private double numberOfTests;
 
     //The amount of minutes required to fix the code, high amount of minutes = bad.
     //The format is XXX.00
-    private int technicalDebt;
+    private double technicalDebt;
 
     //The percentage of comments vs lines of code.
     //The format is XXX.00
-    private int commentPercentage;
+    private double commentPercentage;
 
     //The amount of lines of code.
     //The formati is XXX.00
-    private int linesOfCode;
+    private double linesOfCode;
 
     public int getCompanyID() {
         return companyID;
@@ -41,7 +41,7 @@ public class DataInput {
         this.companyID = companyID;
     }
 
-    public int getCodeComplexity() {
+    public double getCodeComplexity() {
         return codeComplexity;
     }
 
@@ -49,7 +49,7 @@ public class DataInput {
         this.codeComplexity = codeComplexity;
     }
 
-    public int getCodeDuplicationDensity() {
+    public double getCodeDuplicationDensity() {
         return codeDuplicationDensity;
     }
 
@@ -57,7 +57,7 @@ public class DataInput {
         this.codeDuplicationDensity = codeDuplicationDensity;
     }
 
-    public int getCodeViolationsDensity() {
+    public double getCodeViolationsDensity() {
         return codeViolationsDensity;
     }
 
@@ -65,7 +65,7 @@ public class DataInput {
         this.codeViolationsDensity = codeViolationsDensity;
     }
 
-    public int getNumberOfTests() {
+    public double getNumberOfTests() {
         return numberOfTests;
     }
 
@@ -73,7 +73,7 @@ public class DataInput {
         this.numberOfTests = numberOfTests;
     }
 
-    public int getTechnicalDebt() {
+    public double getTechnicalDebt() {
         return technicalDebt;
     }
 
@@ -81,7 +81,7 @@ public class DataInput {
         this.technicalDebt = technicalDebt;
     }
 
-    public int getCommentPercentage() {
+    public double getCommentPercentage() {
         return commentPercentage;
     }
 
@@ -89,7 +89,7 @@ public class DataInput {
         this.commentPercentage = commentPercentage;
     }
 
-    public int getLinesOfCode() {
+    public double getLinesOfCode() {
         return linesOfCode;
     }
 

@@ -2,12 +2,12 @@ package wildtornado.scocalc.strategies;
 
 public class CodeViolationsDensityCalculator extends BaseCalculator {
 
-    public CodeViolationsDensityCalculator(int val) {
+    public CodeViolationsDensityCalculator(double val) {
         this.val = val;
     }
 
     public void generate() {
-        this.result = val;
+        this.result = (int) val;;
     }
 
 }

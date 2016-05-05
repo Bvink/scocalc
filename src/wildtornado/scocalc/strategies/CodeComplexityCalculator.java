@@ -2,12 +2,12 @@ package wildtornado.scocalc.strategies;
 
 public class CodeComplexityCalculator extends BaseCalculator {
 
-    public CodeComplexityCalculator(int val) {
+    public CodeComplexityCalculator(double val) {
         this.val = val;
     }
 
     public void generate() {
-        this.result = val;
+        this.result = (int) val;
     }
 
 }
