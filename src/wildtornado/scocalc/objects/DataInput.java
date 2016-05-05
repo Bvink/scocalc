@@ -45,7 +45,7 @@ public class DataInput {
         return codeComplexity;
     }
 
-    public void setCodeComplexity(int codeComplexity) {
+    public void setCodeComplexity(double codeComplexity) {
         this.codeComplexity = codeComplexity;
     }
 
