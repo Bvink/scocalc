@@ -53,7 +53,7 @@ public class DataInput {
         return codeDuplicationDensity;
     }
 
-    public void setCodeDuplicationDensity(int codeDuplicationDensity) {
+    public void setCodeDuplicationDensity(double codeDuplicationDensity) {
         this.codeDuplicationDensity = codeDuplicationDensity;
     }
 
@@ -61,7 +61,7 @@ public class DataInput {
         return codeViolationsDensity;
     }
 
-    public void setCodeViolationsDensity(int codeViolationsDensity) {
+    public void setCodeViolationsDensity(double codeViolationsDensity) {
         this.codeViolationsDensity = codeViolationsDensity;
     }
 
@@ -69,7 +69,7 @@ public class DataInput {
         return numberOfTests;
     }
 
-    public void setNumberOfTests(int numberOfTests) {
+    public void setNumberOfTests(double numberOfTests) {
         this.numberOfTests = numberOfTests;
     }
 
@@ -77,7 +77,7 @@ public class DataInput {
         return technicalDebt;
     }
 
-    public void setTechnicalDebt(int technicalDebt) {
+    public void setTechnicalDebt(double technicalDebt) {
         this.technicalDebt = technicalDebt;
     }
 
@@ -85,7 +85,7 @@ public class DataInput {
         return commentPercentage;
     }
 
-    public void setCommentPercentage(int commentPercentage) {
+    public void setCommentPercentage(double commentPercentage) {
         this.commentPercentage = commentPercentage;
     }
 
@@ -93,7 +93,7 @@ public class DataInput {
         return linesOfCode;
     }
 
-    public void setLinesOfCode(int linesOfCode) {
+    public void setLinesOfCode(double linesOfCode) {
         this.linesOfCode = linesOfCode;
     }
 }
