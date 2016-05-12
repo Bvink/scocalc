@@ -8,7 +8,6 @@ public class Score {
     private int codeDuplicationScore;
     private int codeViolationsScore;
     private int commentPercentageScore;
-    private int commentLinesScore;
     private int linesOfCodeScore;
     private int technicalDebtScore;
     private int testCoverageScore;
