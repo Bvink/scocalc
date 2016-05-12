@@ -29,8 +29,12 @@ public class DataInput {
     //The format is XXX.00
     private double commentPercentage;
 
+    //The amount of comment lines.
+    //The format is XXX.00
+    private double commentLines;
+
     //The amount of lines of code.
-    //The formati is XXX.00
+    //The format is XXX.00
     private double linesOfCode;
 
     public int getCompanyID() {
@@ -87,6 +91,14 @@ public class DataInput {
 
     public void setCommentPercentage(double commentPercentage) {
         this.commentPercentage = commentPercentage;
+    }
+
+    public double getCommentLines() {
+        return commentLines;
+    }
+
+    public void setCommentLines(double commentLines) {
+        this.commentLines = commentLines;
     }
 
     public double getLinesOfCode() {

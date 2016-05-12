@@ -6,6 +6,7 @@ import wildtornado.scocalc.objects.Score;
 public abstract class BaseCompany implements Company {
 
     protected DataInput dp;
+    protected DataInput comparison;
     protected Score score = new Score();
 
     public Score generateScore() {
@@ -13,38 +14,31 @@ public abstract class BaseCompany implements Company {
     }
 
     public void CalculateCodeComplexity() {
-        score.calculateCodeComplexityScore(dp.getCodeComplexity());
-        score.addTotalScore(score.getCodeComplexityScore());
+        score.calculateCodeComplexityScore(dp.getCodeComplexity(), comparison.getCodeComplexity());
     }
 
     public void CalculateCodeDuplicationDensity() {
-        score.calculateCodeDuplicationScore(dp.getCodeDuplicationDensity());
-        score.addTotalScore(score.getCodeDuplicationScore());
+        score.calculateCodeDuplicationScore(dp.getCodeDuplicationDensity(), comparison.getCodeDuplicationDensity());
     }
 
     public void CalculateCodeViolationsDensity() {
-        score.calculateCodeViolationsScore(dp.getCodeViolationsDensity());
-        score.addTotalScore(score.getCodeViolationsScore());
+        score.calculateCodeViolationsScore(dp.getCodeViolationsDensity(), comparison.getCodeViolationsDensity());
     }
 
     public void CalculateCommentsPercentage() {
-        score.calculateCommentPercentageScore(dp.getCommentPercentage());
-        score.addTotalScore(score.getCommentPercentageScore());
+        score.calculateCommentPercentageScore(dp.getCommentPercentage(), comparison.getCommentPercentage(), dp.getCommentLines(), comparison.getCommentLines());
     }
 
     public void CalculateLinesOfCode() {
-        score.calculateLinesOfCodeScore(dp.getLinesOfCode());
-        score.addTotalScore(score.getLinesOfCodeScore());
+        score.calculateLinesOfCodeScore(dp.getLinesOfCode(), comparison.getLinesOfCode());
     }
 
     public void CalculateTechnicalDebt() {
-        score.calculateTechnicalDebtScore(dp.getTechnicalDebt());
-        score.addTotalScore(score.getTechnicalDebtScore());
+        score.calculateTechnicalDebtScore(dp.getTechnicalDebt(), comparison.getTechnicalDebt());
     }
 
     public void CalculateTestCoverage() {
-        score.calculateTestCoverageScore(dp.getNumberOfTests());
-        score.addTotalScore(score.getTestCoverageScore());
+        score.calculateTestCoverageScore(dp.getNumberOfTests(), comparison.getNumberOfTests());
     }
 
 }

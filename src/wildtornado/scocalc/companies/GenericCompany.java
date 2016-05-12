@@ -5,13 +5,12 @@ import wildtornado.scocalc.objects.Score;
 
 public class GenericCompany extends BaseCompany {
 
-    public GenericCompany(DataInput dp) {
+    public GenericCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
+        this.comparison = comparison;
     }
 
     public Score generateScore() {
-        score.setMetricsEnabledAmount(7);
-
         CalculateCodeComplexity();
         CalculateCodeDuplicationDensity();
         CalculateCodeViolationsDensity();
@@ -19,7 +18,6 @@ public class GenericCompany extends BaseCompany {
         CalculateLinesOfCode();
         CalculateTechnicalDebt();
         CalculateTestCoverage();
-        score.calculateFinalScore();
         return score;
     }
 

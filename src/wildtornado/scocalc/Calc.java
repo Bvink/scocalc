@@ -10,16 +10,16 @@ public class Calc {
 
     private Company company;
 
-    public Calc(DataInput dp) {
-        this.company = determineCompany(dp);
+    public Calc(DataInput dp, DataInput comparison) {
+        this.company = determineCompany(dp, comparison);
     }
 
-    private Company determineCompany(DataInput dp) {
+    private Company determineCompany(DataInput dp, DataInput comparison) {
         switch (dp.getCompanyID()) {
             case 1:
-                return new JenkyCompany(dp);
+                return new JenkyCompany(dp, comparison);
             default:
-                return new GenericCompany(dp);
+                return new GenericCompany(dp, comparison);
         }
     }
 
