@@ -13,14 +13,13 @@ public class CommentPercentageCalculator extends BaseCalculator {
     }
 
     public void generate() {
-        if(lineVal != lineComp) {
-            if (val >= 10 && val <= 20) {
-                int temp = (int) ((lineVal - lineComp) * 200);
-                this.result = temp > 0 ? temp : 0;
-                this.result = temp <= 10000 ? temp : 10000;
-            } else {
-                this.result = 0;
-            }
+        if (lineVal != lineComp
+                && val >= 10
+                && val <= 20) {
+            int temp = (int) ((lineVal - lineComp) * 20);
+            putScoreWithinBounds(temp);
+        } else {
+            this.result = 0;
         }
     }
 

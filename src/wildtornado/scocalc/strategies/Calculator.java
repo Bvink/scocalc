@@ -6,4 +6,6 @@ public interface Calculator {
 
     public int run();
 
+    public void putScoreWithinBounds(int temp);
+
 }
