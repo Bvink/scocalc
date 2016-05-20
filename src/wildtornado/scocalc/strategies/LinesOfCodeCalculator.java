@@ -8,7 +8,9 @@ public class LinesOfCodeCalculator extends BaseCalculator {
     }
 
     public void generate() {
-        this.result = (int) val;
+        if (val != comp) {
+            this.result = val > comp ? (int) (Math.abs(val-comp) * 20) : (int) Math.abs(val-comp) * 10;
+        }
     }
 
 }

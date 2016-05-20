@@ -7,7 +7,7 @@ public class Score {
     private int codeComplexityScore;
     private int codeDuplicationScore;
     private int codeViolationsScore;
-    private int commentPercentageScore;
+    private int commentScore;
     private int linesOfCodeScore;
     private int technicalDebtScore;
     private int testCoverageScore;
@@ -21,8 +21,8 @@ public class Score {
         return codeComplexityScore;
     }
 
-    public void calculateCodeDuplicationScore(double codeDuplicationScore, double codeDuplicationComparison) {
-        Calculator calc = new CodeDuplicationDensityCalculator(codeDuplicationScore, codeDuplicationComparison);
+    public void calculateCodeDuplicationScore(double codeDuplicationScore, double codeDuplicationComparison, double codeDuplicationDensity) {
+        Calculator calc = new CodeDuplicationCalculator(codeDuplicationScore, codeDuplicationComparison, codeDuplicationDensity);
         this.codeDuplicationScore = calc.run();
     }
 
@@ -31,7 +31,7 @@ public class Score {
     }
 
     public void calculateCodeViolationsScore(double codeViolationsScore, double codeViolationsComparison) {
-        Calculator calc = new CodeViolationsDensityCalculator(codeViolationsScore, codeViolationsComparison);
+        Calculator calc = new CodeViolationsCalculator(codeViolationsScore, codeViolationsComparison);
         this.codeViolationsScore = calc.run();
     }
 
@@ -39,13 +39,13 @@ public class Score {
         return codeViolationsScore;
     }
 
-    public void calculateCommentPercentageScore(double commentPercentageScore, double commentPercentageComparison, double commentLinesScore, double commentLinesComparison) {
-        Calculator calc = new CommentPercentageCalculator(commentPercentageScore, commentPercentageComparison, commentLinesScore, commentLinesComparison);
-        this.commentPercentageScore = calc.run();
+    public void calculateCommentPercentageScore(double commentPercentageScore, double commentLinesScore, double commentLinesComparison, double commentedOutCodeLines, double commentedOutCodeLinesComparison) {
+        Calculator calc = new CommentCalculator(commentPercentageScore, commentLinesScore, commentLinesComparison, commentedOutCodeLines, commentedOutCodeLinesComparison);
+        this.commentScore = calc.run();
     }
 
-    public int getCommentPercentageScore() {
-        return commentPercentageScore;
+    public int getCommentScore() {
+        return commentScore;
     }
 
     public void calculateLinesOfCodeScore(double linesOfCodeScore, double linesOfCodeComparison) {

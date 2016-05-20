@@ -6,35 +6,43 @@ public class DataInput {
     private int companyID;
 
     //Code complexity is a value of minimum 1 that goes up, the larger it is, the worse.
-    //The format is XXX.00
+    //The metric is complexity.
     private double codeComplexity;
 
-    //Code duplication is a percentage of how much of the code is duplicate.
-    //The format is XXX.00
+    //Code duplication is the number of code duplication present in the project.
+    //The metric is duplicated_lines.
+    private double codeDuplication;
+
+    //Code duplication density is the percentage of code duplication present in the project.
+    //The metric is duplicated_lines.
     private double codeDuplicationDensity;
 
-    //Code duplication is a percentage of how much of the code is duplicate.
-    //The format is XXX.00
-    private double codeViolationsDensity;
+    //Code violations is the number of code violations present in the project.
+    //The metric is violations.
+    private double codeViolations;
 
-    //The amount of unit tests performed, each one gives bonus points.
-    //The format is XXX.00
+    //The amount of unit tests performed.
+    //The metric is tests.
     private double numberOfTests;
 
-    //The amount of minutes required to fix the code, high amount of minutes = bad.
-    //The format is XXX.00
+    //The amount of minutes required to fix the code.
+    //The metric is sqale_index.
     private double technicalDebt;
 
     //The percentage of comments vs lines of code.
-    //The format is XXX.00
+    //The metric is comment_lines_density.
     private double commentPercentage;
 
     //The amount of comment lines.
-    //The format is XXX.00
+    //The metric is comment_lines.
     private double commentLines;
 
+    //The amount of commented out code.
+    //The metric is commented_out_code_lines.
+    private double commentedOutCodeLines;
+
     //The amount of lines of code.
-    //The format is XXX.00
+    //The metric is ncloc.
     private double linesOfCode;
 
     public int getCompanyID() {
@@ -53,6 +61,14 @@ public class DataInput {
         this.codeComplexity = codeComplexity;
     }
 
+    public double getCodeDuplication() {
+        return codeDuplication;
+    }
+
+    public void setCodeDuplication(double codeDuplication) {
+        this.codeDuplication = codeDuplication;
+    }
+
     public double getCodeDuplicationDensity() {
         return codeDuplicationDensity;
     }
@@ -61,12 +77,12 @@ public class DataInput {
         this.codeDuplicationDensity = codeDuplicationDensity;
     }
 
-    public double getCodeViolationsDensity() {
-        return codeViolationsDensity;
+    public double getCodeViolations() {
+        return codeViolations;
     }
 
-    public void setCodeViolationsDensity(double codeViolationsDensity) {
-        this.codeViolationsDensity = codeViolationsDensity;
+    public void setCodeViolations(double codeViolations) {
+        this.codeViolations = codeViolations;
     }
 
     public double getNumberOfTests() {
@@ -99,6 +115,14 @@ public class DataInput {
 
     public void setCommentLines(double commentLines) {
         this.commentLines = commentLines;
+    }
+
+    public double getCommentedOutCodeLines() {
+        return commentedOutCodeLines;
+    }
+
+    public void setCommentedOutCodeLines(double commentedOutCodeLines) {
+        this.commentedOutCodeLines = commentedOutCodeLines;
     }
 
     public double getLinesOfCode() {

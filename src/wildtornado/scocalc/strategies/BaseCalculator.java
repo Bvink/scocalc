@@ -21,4 +21,9 @@ public abstract class BaseCalculator implements Calculator {
         this.result = temp > minScore ? temp : minScore;
         this.result = temp <= maxScore ? temp : maxScore;
     }
+
+    public void giveBonus(boolean condition) {
+        if (condition)
+        this.result += 250;
+    }
 }

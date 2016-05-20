@@ -18,11 +18,11 @@ public abstract class BaseCompany implements Company {
     }
 
     public void CalculateCodeDuplicationDensity() {
-        score.calculateCodeDuplicationScore(dp.getCodeDuplicationDensity(), comparison.getCodeDuplicationDensity());
+        score.calculateCodeDuplicationScore(dp.getCodeDuplication(), comparison.getCodeDuplication());
     }
 
     public void CalculateCodeViolationsDensity() {
-        score.calculateCodeViolationsScore(dp.getCodeViolationsDensity(), comparison.getCodeViolationsDensity());
+        score.calculateCodeViolationsScore(dp.getCodeViolations(), comparison.getCodeViolations());
     }
 
     public void CalculateCommentsPercentage() {
