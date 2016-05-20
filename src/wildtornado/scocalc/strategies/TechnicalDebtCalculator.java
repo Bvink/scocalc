@@ -8,7 +8,9 @@ public class TechnicalDebtCalculator extends BaseCalculator {
     }
 
     public void generate() {
-        this.result = (int) val;
+        if (val != comp) {
+            this.result = val < comp ? (int) (Math.abs(val-comp) * 5) : 0;
+        }
     }
 
 }

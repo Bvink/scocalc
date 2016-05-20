@@ -5,10 +5,6 @@ public class DataInput {
     //The companyID identifies which company is attempting to generate a score.
     private int companyID;
 
-    //Code complexity is a value of minimum 1 that goes up, the larger it is, the worse.
-    //The metric is complexity.
-    private double codeComplexity;
-
     //Code duplication is the number of code duplication present in the project.
     //The metric is duplicated_lines.
     private double codeDuplication;
@@ -63,14 +59,6 @@ public class DataInput {
 
     public void setCompanyID(int companyID) {
         this.companyID = companyID;
-    }
-
-    public double getCodeComplexity() {
-        return codeComplexity;
-    }
-
-    public void setCodeComplexity(double codeComplexity) {
-        this.codeComplexity = codeComplexity;
     }
 
     public double getCodeDuplication() {

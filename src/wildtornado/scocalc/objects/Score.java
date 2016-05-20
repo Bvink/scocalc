@@ -4,7 +4,6 @@ import wildtornado.scocalc.strategies.*;
 
 public class Score {
 
-    private int codeComplexityScore;
     private int codeDuplicationScore;
     private int codeViolationsScore;
     private int commentScore;
@@ -12,14 +11,6 @@ public class Score {
     private int technicalDebtScore;
     private int testCoverageScore;
 
-    public void calculateCodeComplexityScore(double codeComplexityScore, double codeComplexityComparison) {
-        Calculator calc = new CodeComplexityCalculator(codeComplexityScore, codeComplexityComparison);
-        this.codeComplexityScore = calc.run();
-    }
-
-    public int getCodeComplexityScore() {
-        return codeComplexityScore;
-    }
 
     public void calculateCodeDuplicationScore(double codeDuplicationScore, double codeDuplicationComparison, double codeDuplicationDensity) {
         Calculator calc = new CodeDuplicationCalculator(codeDuplicationScore, codeDuplicationComparison, codeDuplicationDensity);

@@ -13,10 +13,6 @@ public abstract class BaseCompany implements Company {
         return new Score();
     }
 
-    public void CalculateCodeComplexity() {
-        score.calculateCodeComplexityScore(dp.getCodeComplexity(), comparison.getCodeComplexity());
-    }
-
     public void CalculateCodeDuplicationDensity() {
         score.calculateCodeDuplicationScore(dp.getCodeDuplication(), comparison.getCodeDuplication(), dp.getCodeDuplicationDensity());
     }

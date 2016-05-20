@@ -11,7 +11,6 @@ public class JenkyCompany extends BaseCompany {
     }
 
     public Score generateScore() {
-        CalculateCodeComplexity();
         CalculateCodeDuplicationDensity();
         CalculateCodeViolationsDensity();
         CalculateCommentsPercentage();

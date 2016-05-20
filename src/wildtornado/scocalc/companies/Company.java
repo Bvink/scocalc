@@ -6,8 +6,6 @@ public interface Company {
 
     public Score generateScore();
 
-    public void CalculateCodeComplexity();
-
     public void CalculateCodeDuplicationDensity();
 
     public void CalculateCodeViolationsDensity();
