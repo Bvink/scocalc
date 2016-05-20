@@ -25,6 +25,18 @@ public class DataInput {
     //The metric is tests.
     private double numberOfTests;
 
+    //The percentage of code covered by unit tests
+    //The metric is coverage.
+    private double testCoverage;
+
+    //The amount of tests with errors
+    //The metric is test_errors.
+    private double testErrors;
+
+    //The amount of failed tests.
+    //The metric is	test_failures.
+    private double testFailures;
+
     //The amount of minutes required to fix the code.
     //The metric is sqale_index.
     private double technicalDebt;
@@ -91,6 +103,30 @@ public class DataInput {
 
     public void setNumberOfTests(double numberOfTests) {
         this.numberOfTests = numberOfTests;
+    }
+
+    public double getTestCoverage() {
+        return testCoverage;
+    }
+
+    public void setTestCoverage(double testCoverage) {
+        this.testCoverage = testCoverage;
+    }
+
+    public double getTestErrors() {
+        return testErrors;
+    }
+
+    public void setTestErrors(double testErrors) {
+        this.testErrors = testErrors;
+    }
+
+    public double getTestFailures() {
+        return testFailures;
+    }
+
+    public void setTestFailures(double testFailures) {
+        this.testFailures = testFailures;
     }
 
     public double getTechnicalDebt() {

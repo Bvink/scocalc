@@ -66,8 +66,8 @@ public class Score {
         return technicalDebtScore;
     }
 
-    public void calculateTestCoverageScore(double testCoverageScore, double testCoverageComparison) {
-        Calculator calc = new TestCoverageCalculator(testCoverageScore, testCoverageComparison);
+    public void calculateTestCoverageScore(double testCoverage, double testAmountScore, double testAmountComparison, double testErrorScore, double testErrorComparison, double testFailureScore, double testFailureComparison) {
+        Calculator calc = new TestCoverageCalculator(testCoverage, testAmountScore, testAmountComparison, testErrorScore, testErrorComparison, testFailureScore, testFailureComparison);
         this.testCoverageScore = calc.run();
     }
 

@@ -18,7 +18,7 @@ public abstract class BaseCompany implements Company {
     }
 
     public void CalculateCodeDuplicationDensity() {
-        score.calculateCodeDuplicationScore(dp.getCodeDuplication(), comparison.getCodeDuplication());
+        score.calculateCodeDuplicationScore(dp.getCodeDuplication(), comparison.getCodeDuplication(), dp.getCodeDuplicationDensity());
     }
 
     public void CalculateCodeViolationsDensity() {
@@ -26,7 +26,7 @@ public abstract class BaseCompany implements Company {
     }
 
     public void CalculateCommentsPercentage() {
-        score.calculateCommentPercentageScore(dp.getCommentPercentage(), comparison.getCommentPercentage(), dp.getCommentLines(), comparison.getCommentLines());
+        score.calculateCommentPercentageScore(dp.getCommentPercentage(), dp.getCommentLines(), comparison.getCommentLines(), dp.getCommentedOutCodeLines(), comparison.getCommentedOutCodeLines());
     }
 
     public void CalculateLinesOfCode() {
@@ -38,7 +38,7 @@ public abstract class BaseCompany implements Company {
     }
 
     public void CalculateTestCoverage() {
-        score.calculateTestCoverageScore(dp.getNumberOfTests(), comparison.getNumberOfTests());
+        score.calculateTestCoverageScore(dp.getTestCoverage(), dp.getNumberOfTests(), comparison.getNumberOfTests(), dp.getTestErrors(), comparison.getTestErrors(), dp.getTestFailures(), comparison.getTestFailures());
     }
 
 }
