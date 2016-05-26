@@ -18,9 +18,10 @@ public class TestCoverageCalculator extends BaseCalculator {
         this.score = 200;
     }
 
+    @Override
     public void generate() {
         if (coverageVal >= minimumAmount) {
-            this.result = testVal < testComp ? (int) (Math.abs(testVal - testComp) * score) : minScore;
+            this.result = testVal < testComp ? (int) (Math.abs(testVal - testComp) * score) : MIN_SCORE;
             giveBonus(coverageVal > bonusAmount);
         }
         putScoreWithinBounds(this.result);

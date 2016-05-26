@@ -5,13 +5,14 @@ import wildtornado.scocalc.objects.Score;
 
 public class GenericCompany extends BaseCompany {
 
-    protected final int metricAmount = 6;
+    protected static final int METRIC_AMOUNT = 6;
 
     public GenericCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
         this.comp = comparison;
     }
 
+    @Override
     public Score generateScore() {
         calculateCodeDuplication();
         calculateCodeViolations();
@@ -19,7 +20,7 @@ public class GenericCompany extends BaseCompany {
         calculateLinesOfCode();
         calculateTechnicalDebt();
         calculateTestCoverage();
-        calculateAverageScore(metricAmount);
+        calculateAverageScore(METRIC_AMOUNT);
         return score;
     }
 

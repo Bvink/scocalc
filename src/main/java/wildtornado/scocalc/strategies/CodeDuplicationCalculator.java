@@ -17,10 +17,11 @@ public class CodeDuplicationCalculator extends BaseCalculator {
         this.score = 25;
     }
 
+    @Override
     public void generate() {
 
         if (densityVal <= minimumAmount) {
-            this.result = duplicationVal < duplicationComp ? (int) (Math.abs(duplicationVal - duplicationComp) * score) : minScore;
+            this.result = duplicationVal < duplicationComp ? (int) (Math.abs(duplicationVal - duplicationComp) * score) : MIN_SCORE;
             giveBonus(densityVal < bonusAmount);
         }
         putScoreWithinBounds(this.result);

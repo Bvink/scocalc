@@ -19,14 +19,15 @@ public class CommentCalculator extends BaseCalculator {
         this.bonusAmount = 5;
     }
 
+    @Override
     public void generate() {
-        if (lineVal != lineComp
+        if (!(Math.abs(lineVal - lineComp) < 0.00000001)
                 && percentageVal >= minimumAmount
                 && percentageVal <= maximumAmount) {
             int temp = (int) ((lineVal - lineComp) * score);
             putScoreWithinBounds(temp);
         } else {
-            this.result = minScore;
+            this.result = MIN_SCORE;
         }
     }
 

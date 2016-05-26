@@ -18,4 +18,6 @@ public interface Company {
 
     public void calculateTestCoverage();
 
+    public void calculateAverageScore(int metricAmount);
+
 }

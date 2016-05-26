@@ -30,6 +30,7 @@ public class CodeViolationsCalculator extends BaseCalculator {
         this.score = 100;
     }
 
+    @Override
     public void generate() {
 
         int maxBlockers = 0;
@@ -40,7 +41,7 @@ public class CodeViolationsCalculator extends BaseCalculator {
         int criticalScoreBonus = 150;
         int majorScoreBonus = 75;
 
-        if(blockerViolationVal == maxBlockers
+        if(Math.abs(blockerViolationVal - maxBlockers) < 0.00000001
                 && criticalViolationVal <= maxCriticals
                 && majorViolationVal <= maxMajors
                 && minorViolationVal <= maxMinors) {
@@ -53,7 +54,7 @@ public class CodeViolationsCalculator extends BaseCalculator {
     }
 
     private int calcPartialScore(double val, double comp, int score) {
-        return val < comp ? (int) (Math.abs(val - comp) * score) : minScore;
+        return val < comp ? (int) (Math.abs(val - comp) * score) : MIN_SCORE;
     }
 
 }

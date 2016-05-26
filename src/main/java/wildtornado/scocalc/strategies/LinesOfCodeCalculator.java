@@ -14,8 +14,9 @@ public class LinesOfCodeCalculator extends BaseCalculator {
         this.score = 10;
     }
 
+    @Override
     public void generate() {
-        if (lineVal != lineComp) {
+        if (!(Math.abs(lineVal - lineComp) < 0.00000001)) {
             this.result = lineVal > lineComp ? (int) (Math.abs(lineVal - lineComp) * score) : (int) Math.abs(lineVal - lineComp) * (score / 2);
             putScoreWithinBounds(this.result);
         }

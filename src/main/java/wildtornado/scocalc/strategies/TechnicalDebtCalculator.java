@@ -14,9 +14,10 @@ public class TechnicalDebtCalculator extends BaseCalculator {
         this.score = 5;
     }
 
+    @Override
     public void generate() {
-        if (techVal != techComp) {
-            this.result = techVal < techComp ? (int) (Math.abs(techVal - techComp) * score) : minScore;
+        if (!(Math.abs(techVal - techComp) < 0.00000001)) {
+            this.result = techVal < techComp ? (int) (Math.abs(techVal - techComp) * score) : MIN_SCORE;
             putScoreWithinBounds(this.result);
         }
     }
