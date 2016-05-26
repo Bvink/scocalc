@@ -6,16 +6,16 @@ public interface Company {
 
     public Score generateScore();
 
-    public void CalculateCodeDuplication();
+    public void calculateCodeDuplication();
 
-    public void CalculateCodeViolations();
+    public void calculateCodeViolations();
 
-    public void CalculateComments();
+    public void calculateComments();
 
-    public void CalculateLinesOfCode();
+    public void calculateLinesOfCode();
 
-    public void CalculateTechnicalDebt();
+    public void calculateTechnicalDebt();
 
-    public void CalculateTestCoverage();
+    public void calculateTestCoverage();
 
 }

@@ -14,34 +14,39 @@ public abstract class BaseCompany implements Company {
         return new Score();
     }
 
-    public void CalculateCodeDuplication() {
+    public void calculateCodeDuplication() {
         Calculator calc = new CodeDuplicationCalculator(dp, comp);
         score.setCodeDuplicationScore(calc.run());
     }
 
-    public void CalculateCodeViolations() {
+    public void calculateCodeViolations() {
         Calculator calc = new CodeViolationsCalculator(dp, comp);
         score.setCodeViolationsScore(calc.run());
     }
 
-    public void CalculateComments() {
+    public void calculateComments() {
         Calculator calc = new CommentCalculator(dp, comp);
         score.setCommentScore(calc.run());
     }
 
-    public void CalculateLinesOfCode() {
+    public void calculateLinesOfCode() {
         Calculator calc = new LinesOfCodeCalculator(dp, comp);
         score.setLinesOfCodeScore(calc.run());
     }
 
-    public void CalculateTechnicalDebt() {
+    public void calculateTechnicalDebt() {
         Calculator calc = new TechnicalDebtCalculator(dp, comp);
         score.setTechnicalDebtScore(calc.run());
     }
 
-    public void CalculateTestCoverage() {
+    public void calculateTestCoverage() {
         Calculator calc = new TestCoverageCalculator(dp, comp);
         score.setTestCoverageScore(calc.run());
+    }
+
+    private void calculateAverageScore(int metricAmount) {
+        int val = score.getTotalScore() / metricAmount;
+        score.setAverageScore(val);
     }
 
 }

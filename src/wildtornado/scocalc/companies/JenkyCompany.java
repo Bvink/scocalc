@@ -5,16 +5,18 @@ import wildtornado.scocalc.objects.Score;
 
 public class JenkyCompany extends BaseCompany {
 
+    protected final int metricAmount = 4;
+
     public JenkyCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
         this.comp = comparison;
     }
 
     public Score generateScore() {
-        CalculateCodeDuplication();
-        CalculateCodeViolations();
-        CalculateComments();
-        CalculateLinesOfCode();
+        calculateCodeDuplication();
+        calculateCodeViolations();
+        calculateComments();
+        calculateLinesOfCode();
         return score;
     }
 }
