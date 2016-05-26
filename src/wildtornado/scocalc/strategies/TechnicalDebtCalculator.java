@@ -10,11 +10,14 @@ public class TechnicalDebtCalculator extends BaseCalculator {
     public TechnicalDebtCalculator(DataInput dp, DataInput comp) {
         this.techVal = dp.getTechnicalDebt();
         this.techComp = comp.getTechnicalDebt();
+
+        this.score = 5;
     }
 
     public void generate() {
         if (techVal != techComp) {
-            this.result = techVal < techComp ? (int) (Math.abs(techVal - techComp) * 5) : 0;
+            this.result = techVal < techComp ? (int) (Math.abs(techVal - techComp) * score) : minScore;
+            putScoreWithinBounds(this.result);
         }
     }
 

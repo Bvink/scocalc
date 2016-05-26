@@ -10,11 +10,14 @@ public class LinesOfCodeCalculator extends BaseCalculator {
     public LinesOfCodeCalculator(DataInput dp, DataInput comp) {
         this.lineVal = dp.getLinesOfCode();
         this.lineComp = comp.getLinesOfCode();
+
+        this.score = 20;
     }
 
     public void generate() {
         if (lineVal != lineComp) {
-            this.result = lineVal > lineComp ? (int) (Math.abs(lineVal - lineComp) * 20) : (int) Math.abs(lineVal - lineComp) * 10;
+            this.result = lineVal > lineComp ? (int) (Math.abs(lineVal - lineComp) * score) : (int) Math.abs(lineVal - lineComp) * (score / 2);
+            putScoreWithinBounds(this.result);
         }
     }
 

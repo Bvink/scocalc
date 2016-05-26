@@ -6,6 +6,11 @@ public abstract class BaseCalculator implements Calculator {
     protected final int maxScore = 1000;
     protected int result;
 
+    protected int score;
+    protected int minimumAmount;
+    protected int maximumAmount;
+    protected int bonusAmount;
+
     public void generate() {
         this.result = maxScore;
     }

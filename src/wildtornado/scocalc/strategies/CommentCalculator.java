@@ -12,16 +12,20 @@ public class CommentCalculator extends BaseCalculator {
         this.percentageVal = dp.getCommentPercentage();
         this.lineVal = dp.getCommentLines() - dp.getCommentedOutCodeLines();
         this.lineComp = comp.getCommentLines() - comp.getCommentedOutCodeLines();
+
+        this.minimumAmount = 10;
+        this.maximumAmount = 20;
+        this.bonusAmount = 5;
     }
 
     public void generate() {
         if (lineVal != lineComp
-                && percentageVal >= 10
-                && percentageVal <= 20) {
-            int temp = (int) ((lineVal - lineComp) * 50);
+                && percentageVal >= minimumAmount
+                && percentageVal <= maximumAmount) {
+            int temp = (int) ((lineVal - lineComp) * score);
             putScoreWithinBounds(temp);
         } else {
-            this.result = 0;
+            this.result = minScore;
         }
     }
 

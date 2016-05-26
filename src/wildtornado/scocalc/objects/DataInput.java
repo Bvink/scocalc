@@ -10,7 +10,7 @@ public class DataInput {
     private double codeDuplication;
 
     //Code duplication density is the percentage of code duplication present in the project.
-    //The metric is duplicated_lines.
+    //The metric is duplicated_lines_density.
     private double codeDuplicationDensity;
 
     //Code violations is the number of code violations present in the project.

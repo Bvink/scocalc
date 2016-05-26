@@ -3,7 +3,6 @@ package wildtornado.scocalc.strategies;
 import wildtornado.scocalc.objects.DataInput;
 
 public class CodeDuplicationCalculator extends BaseCalculator {
-
     private double duplicationVal;
     private double duplicationComp;
     private double densityVal;
@@ -12,13 +11,17 @@ public class CodeDuplicationCalculator extends BaseCalculator {
         this.duplicationVal = dp.getCodeDuplication();
         this.duplicationComp = comp.getCodeDuplication();
         this.densityVal = dp.getCodeDuplicationDensity();
+
+        this.minimumAmount = 15;
+        this.bonusAmount = 5;
+        this.score = 20;
     }
 
     public void generate() {
 
-        if (densityVal <= 15) {
-            this.result = duplicationVal < duplicationComp ? (int) (Math.abs(duplicationVal - duplicationComp) * 20) : 0;
-            giveBonus(densityVal < 5);
+        if (densityVal <= minimumAmount) {
+            this.result = duplicationVal < duplicationComp ? (int) (Math.abs(duplicationVal - duplicationComp) * score) : minScore;
+            giveBonus(densityVal < bonusAmount);
         }
         putScoreWithinBounds(this.result);
     }
