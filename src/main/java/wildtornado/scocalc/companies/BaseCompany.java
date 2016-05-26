@@ -1,8 +1,8 @@
 package wildtornado.scocalc.companies;
 
+import wildtornado.scocalc.calculators.*;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
-import wildtornado.scocalc.calculators.*;
 
 public abstract class BaseCompany implements Company {
 
@@ -17,38 +17,38 @@ public abstract class BaseCompany implements Company {
 
     @Override
     public void calculateCodeDuplication() {
-        Calculator calc = new CodeDuplicationCalculator(dp, comp);
-        score.setCodeDuplicationScore(calc.run());
+        Calculator calc = new CodeDuplicationCalculator();
+        score.setCodeDuplicationScore(calc.generate(dp, comp));
     }
 
     @Override
     public void calculateCodeViolations() {
-        Calculator calc = new CodeViolationsCalculator(dp, comp);
-        score.setCodeViolationsScore(calc.run());
+        Calculator calc = new CodeViolationsCalculator();
+        score.setCodeViolationsScore(calc.generate(dp, comp));
     }
 
     @Override
     public void calculateComments() {
-        Calculator calc = new CommentCalculator(dp, comp);
-        score.setCommentScore(calc.run());
+        Calculator calc = new CommentCalculator();
+        score.setCommentScore(calc.generate(dp, comp));
     }
 
     @Override
     public void calculateLinesOfCode() {
-        Calculator calc = new LinesOfCodeCalculator(dp, comp);
-        score.setLinesOfCodeScore(calc.run());
+        Calculator calc = new LinesOfCodeCalculator();
+        score.setLinesOfCodeScore(calc.generate(dp, comp));
     }
 
     @Override
     public void calculateTechnicalDebt() {
-        Calculator calc = new TechnicalDebtCalculator(dp, comp);
-        score.setTechnicalDebtScore(calc.run());
+        Calculator calc = new TechnicalDebtCalculator();
+        score.setTechnicalDebtScore(calc.generate(dp, comp));
     }
 
     @Override
     public void calculateTestCoverage() {
-        Calculator calc = new TestCoverageCalculator(dp, comp);
-        score.setTestCoverageScore(calc.run());
+        Calculator calc = new TestCoverageCalculator();
+        score.setTestCoverageScore(calc.generate(dp, comp));
     }
 
     @Override

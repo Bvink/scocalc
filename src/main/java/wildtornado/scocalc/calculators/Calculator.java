@@ -1,13 +1,13 @@
 package wildtornado.scocalc.calculators;
 
+import wildtornado.scocalc.objects.DataInput;
+
 public interface Calculator {
 
-    public void generate();
+    public int generate(DataInput dp, DataInput comp);
 
-    public int run();
+    public int giveBonus(boolean condition);
 
-    public void giveBonus(boolean condition);
-
-    public void putScoreWithinBounds(int temp);
+    public int putScoreWithinBounds(int temp);
 
 }

@@ -3,28 +3,24 @@ package wildtornado.scocalc.calculators;
 import wildtornado.scocalc.objects.DataInput;
 
 public class CodeDuplicationCalculator extends BaseCalculator {
-    private double duplicationVal;
-    private double duplicationComp;
-    private double densityVal;
 
-    public CodeDuplicationCalculator(DataInput dp, DataInput comp) {
-        this.duplicationVal = dp.getCodeDuplication();
-        this.duplicationComp = comp.getCodeDuplication();
-        this.densityVal = dp.getCodeDuplicationDensity();
-
+    public CodeDuplicationCalculator() {
         this.minimumAmount = 15;
         this.bonusAmount = 5;
         this.score = 25;
     }
 
     @Override
-    public void generate() {
+    public int generate(DataInput dp, DataInput comp) {
 
-        if (densityVal <= minimumAmount) {
-            this.result = duplicationVal < duplicationComp ? (int) (Math.abs(duplicationVal - duplicationComp) * score) : MIN_SCORE;
-            giveBonus(densityVal < bonusAmount);
+        int result = 0;
+
+        if (dp.getCodeDuplicationDensity() <= minimumAmount) {
+            result = dp.getCodeDuplication() < comp.getCodeDuplication() ? (int) (Math.abs(dp.getCodeDuplication() - comp.getCodeDuplication()) * score) : MIN_SCORE;
+            result += giveBonus(dp.getCodeDuplicationDensity() < bonusAmount);
         }
-        putScoreWithinBounds(this.result);
+        result = putScoreWithinBounds(result);
+        return result;
     }
 
 }

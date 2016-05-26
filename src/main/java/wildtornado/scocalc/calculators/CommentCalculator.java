@@ -4,15 +4,7 @@ import wildtornado.scocalc.objects.DataInput;
 
 public class CommentCalculator extends BaseCalculator {
 
-    private double percentageVal;
-    private double lineVal;
-    private double lineComp;
-
-    public CommentCalculator(DataInput dp, DataInput comp) {
-        this.percentageVal = dp.getCommentPercentage();
-        this.lineVal = dp.getCommentLines() - dp.getCommentedOutCodeLines();
-        this.lineComp = comp.getCommentLines() - comp.getCommentedOutCodeLines();
-
+    public CommentCalculator() {
         this.score = 50;
         this.minimumAmount = 10;
         this.maximumAmount = 20;
@@ -20,15 +12,22 @@ public class CommentCalculator extends BaseCalculator {
     }
 
     @Override
-    public void generate() {
+    public int generate(DataInput dp, DataInput comp) {
+
+        int result;
+
+        double lineVal = dp.getCommentLines() - dp.getCommentedOutCodeLines();
+        double lineComp = comp.getCommentLines() - comp.getCommentedOutCodeLines();
+
         if (!(Math.abs(lineVal - lineComp) < 0.00000001)
-                && percentageVal >= minimumAmount
-                && percentageVal <= maximumAmount) {
+                && dp.getCommentPercentage() >= minimumAmount
+                && dp.getCommentPercentage() <= maximumAmount) {
             int temp = (int) ((lineVal - lineComp) * score);
-            putScoreWithinBounds(temp);
+            result = putScoreWithinBounds(temp);
         } else {
-            this.result = MIN_SCORE;
+            result = MIN_SCORE;
         }
+        return result;
     }
 
 }
