@@ -19,6 +19,7 @@ public class GenericCompany extends BaseCompany {
         calculateLinesOfCode();
         calculateTechnicalDebt();
         calculateTestCoverage();
+        calculateAverageScore(metricAmount);
         return score;
     }
 

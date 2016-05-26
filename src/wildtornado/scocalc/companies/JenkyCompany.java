@@ -17,6 +17,7 @@ public class JenkyCompany extends BaseCompany {
         calculateCodeViolations();
         calculateComments();
         calculateLinesOfCode();
+        calculateAverageScore(metricAmount);
         return score;
     }
 }

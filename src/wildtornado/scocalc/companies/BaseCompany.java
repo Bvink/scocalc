@@ -44,7 +44,7 @@ public abstract class BaseCompany implements Company {
         score.setTestCoverageScore(calc.run());
     }
 
-    private void calculateAverageScore(int metricAmount) {
+    public void calculateAverageScore(int metricAmount) {
         int val = score.getTotalScore() / metricAmount;
         score.setAverageScore(val);
     }
