@@ -7,6 +7,7 @@ public abstract class BaseCalculator implements Calculator {
     protected int result;
 
     protected int score;
+    protected int bonusScore;
     protected int minimumAmount;
     protected int maximumAmount;
     protected int bonusAmount;
@@ -27,6 +28,6 @@ public abstract class BaseCalculator implements Calculator {
 
     public void giveBonus(boolean condition) {
         if (condition)
-            this.result += 250;
+            this.result += bonusScore;
     }
 }
