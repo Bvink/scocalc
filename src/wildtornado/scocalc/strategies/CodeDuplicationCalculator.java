@@ -14,7 +14,7 @@ public class CodeDuplicationCalculator extends BaseCalculator {
 
         this.minimumAmount = 15;
         this.bonusAmount = 5;
-        this.score = 20;
+        this.score = 25;
     }
 
     public void generate() {

@@ -17,6 +17,22 @@ public class DataInput {
     //The metric is violations.
     private double codeViolations;
 
+    //Blocker violations is the number of Blocker violations present in the project.
+    //The metric is blocker_violations.
+    private double blockerViolations;
+
+    //Critical violations is the number of Critical violations present in the project.
+    //The metric is critical_violations.
+    private double criticalViolations;
+
+    //Major violations is the number of Major violations present in the project.
+    //The metric is major_violations.
+    private double majorViolations;
+
+    //Minor violations is the number of Minor violations present in the project.
+    //The metric is minor_violations.
+    private double minorViolations;
+
     //The amount of unit tests performed.
     //The metric is tests.
     private double numberOfTests;
@@ -83,6 +99,38 @@ public class DataInput {
 
     public void setCodeViolations(double codeViolations) {
         this.codeViolations = codeViolations;
+    }
+
+    public double getBlockerViolations() {
+        return blockerViolations;
+    }
+
+    public void setBlockerViolations(double blockerViolations) {
+        this.blockerViolations = blockerViolations;
+    }
+
+    public double getCriticalViolations() {
+        return criticalViolations;
+    }
+
+    public void setCriticalViolations(double criticalViolations) {
+        this.criticalViolations = criticalViolations;
+    }
+
+    public double getMajorViolations() {
+        return majorViolations;
+    }
+
+    public void setMajorViolations(double majorViolations) {
+        this.majorViolations = majorViolations;
+    }
+
+    public double getMinorViolations() {
+        return minorViolations;
+    }
+
+    public void setMinorViolations(double minorViolations) {
+        this.minorViolations = minorViolations;
     }
 
     public double getNumberOfTests() {
