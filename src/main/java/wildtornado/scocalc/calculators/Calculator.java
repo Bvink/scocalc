@@ -1,4 +1,4 @@
-package wildtornado.scocalc.strategies;
+package wildtornado.scocalc.calculators;
 
 public interface Calculator {
 

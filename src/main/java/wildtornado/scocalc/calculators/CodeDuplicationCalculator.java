@@ -1,4 +1,4 @@
-package wildtornado.scocalc.strategies;
+package wildtornado.scocalc.calculators;
 
 import wildtornado.scocalc.objects.DataInput;
 

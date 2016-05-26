@@ -1,4 +1,4 @@
-package wildtornado.scocalc.strategies;
+package wildtornado.scocalc.calculators;
 
 public abstract class BaseCalculator implements Calculator {
 

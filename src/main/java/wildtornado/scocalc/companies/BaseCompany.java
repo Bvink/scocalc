@@ -2,7 +2,7 @@ package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
-import wildtornado.scocalc.strategies.*;
+import wildtornado.scocalc.calculators.*;
 
 public abstract class BaseCompany implements Company {
 
