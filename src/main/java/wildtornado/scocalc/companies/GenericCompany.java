@@ -5,7 +5,7 @@ import wildtornado.scocalc.objects.Score;
 
 public class GenericCompany extends BaseCompany {
 
-    protected static final int METRIC_AMOUNT = 6;
+    private static final int METRIC_AMOUNT = 6;
 
     public GenericCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
