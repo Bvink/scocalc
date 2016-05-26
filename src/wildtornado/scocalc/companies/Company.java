@@ -6,11 +6,11 @@ public interface Company {
 
     public Score generateScore();
 
-    public void CalculateCodeDuplicationDensity();
+    public void CalculateCodeDuplication();
 
-    public void CalculateCodeViolationsDensity();
+    public void CalculateCodeViolations();
 
-    public void CalculateCommentsPercentage();
+    public void CalculateComments();
 
     public void CalculateLinesOfCode();
 

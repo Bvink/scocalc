@@ -2,8 +2,6 @@ package wildtornado.scocalc.strategies;
 
 public abstract class BaseCalculator implements Calculator {
 
-    protected double val;
-    protected double comp;
     protected final int minScore = 0;
     protected final int maxScore = 1000;
     protected int result;
@@ -24,6 +22,6 @@ public abstract class BaseCalculator implements Calculator {
 
     public void giveBonus(boolean condition) {
         if (condition)
-        this.result += 250;
+            this.result += 250;
     }
 }

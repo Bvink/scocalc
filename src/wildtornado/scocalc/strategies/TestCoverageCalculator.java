@@ -1,19 +1,23 @@
 package wildtornado.scocalc.strategies;
 
+import wildtornado.scocalc.objects.DataInput;
+
 public class TestCoverageCalculator extends BaseCalculator {
 
-    private double coverage;
+    private double coverageVal;
+    private double testVal;
+    private double testComp;
 
-    public TestCoverageCalculator(double coverage, double val, double comp, double error, double errorComp, double failure, double failureComp) {
-        this.val = val - (error + failure);
-        this.comp = comp - (errorComp + failureComp);
-        this.coverage = coverage;
+    public TestCoverageCalculator(DataInput dp, DataInput comp) {
+        this.coverageVal = dp.getTestCoverage();
+        this.testVal = dp.getNumberOfTests() - (dp.getTestErrors() + dp.getTestFailures());
+        this.testComp = comp.getNumberOfTests() - (comp.getTestErrors() + comp.getTestFailures());
     }
 
     public void generate() {
-        if(coverage >= 55) {
-            this.result = val < comp ? (int) (Math.abs(val - comp) * 200) : 0;
-            giveBonus(coverage > 80);
+        if (coverageVal >= 55) {
+            this.result = testVal < testComp ? (int) (Math.abs(testVal - testComp) * 200) : 0;
+            giveBonus(coverageVal > 80);
         }
         putScoreWithinBounds(this.result);
     }

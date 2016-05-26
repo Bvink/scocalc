@@ -2,39 +2,46 @@ package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
+import wildtornado.scocalc.strategies.*;
 
 public abstract class BaseCompany implements Company {
 
     protected DataInput dp;
-    protected DataInput comparison;
+    protected DataInput comp;
     protected Score score = new Score();
 
     public Score generateScore() {
         return new Score();
     }
 
-    public void CalculateCodeDuplicationDensity() {
-        score.calculateCodeDuplicationScore(dp.getCodeDuplication(), comparison.getCodeDuplication(), dp.getCodeDuplicationDensity());
+    public void CalculateCodeDuplication() {
+        Calculator calc = new CodeDuplicationCalculator(dp, comp);
+        score.setCodeDuplicationScore(calc.run());
     }
 
-    public void CalculateCodeViolationsDensity() {
-        score.calculateCodeViolationsScore(dp.getCodeViolations(), comparison.getCodeViolations());
+    public void CalculateCodeViolations() {
+        Calculator calc = new CodeViolationsCalculator(dp, comp);
+        score.setCodeViolationsScore(calc.run());
     }
 
-    public void CalculateCommentsPercentage() {
-        score.calculateCommentPercentageScore(dp.getCommentPercentage(), dp.getCommentLines(), comparison.getCommentLines(), dp.getCommentedOutCodeLines(), comparison.getCommentedOutCodeLines());
+    public void CalculateComments() {
+        Calculator calc = new CommentCalculator(dp, comp);
+        score.setCommentScore(calc.run());
     }
 
     public void CalculateLinesOfCode() {
-        score.calculateLinesOfCodeScore(dp.getLinesOfCode(), comparison.getLinesOfCode());
+        Calculator calc = new LinesOfCodeCalculator(dp, comp);
+        score.setLinesOfCodeScore(calc.run());
     }
 
     public void CalculateTechnicalDebt() {
-        score.calculateTechnicalDebtScore(dp.getTechnicalDebt(), comparison.getTechnicalDebt());
+        Calculator calc = new TechnicalDebtCalculator(dp, comp);
+        score.setTechnicalDebtScore(calc.run());
     }
 
     public void CalculateTestCoverage() {
-        score.calculateTestCoverageScore(dp.getTestCoverage(), dp.getNumberOfTests(), comparison.getNumberOfTests(), dp.getTestErrors(), comparison.getTestErrors(), dp.getTestFailures(), comparison.getTestFailures());
+        Calculator calc = new TestCoverageCalculator(dp, comp);
+        score.setTestCoverageScore(calc.run());
     }
 
 }

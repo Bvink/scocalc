@@ -1,15 +1,20 @@
 package wildtornado.scocalc.strategies;
 
+import wildtornado.scocalc.objects.DataInput;
+
 public class LinesOfCodeCalculator extends BaseCalculator {
 
-    public LinesOfCodeCalculator(double val, double comp) {
-        this.val = val;
-        this.comp = comp;
+    private double lineVal;
+    private double lineComp;
+
+    public LinesOfCodeCalculator(DataInput dp, DataInput comp) {
+        this.lineVal = dp.getLinesOfCode();
+        this.lineComp = comp.getLinesOfCode();
     }
 
     public void generate() {
-        if (val != comp) {
-            this.result = val > comp ? (int) (Math.abs(val-comp) * 20) : (int) Math.abs(val-comp) * 10;
+        if (lineVal != lineComp) {
+            this.result = lineVal > lineComp ? (int) (Math.abs(lineVal - lineComp) * 20) : (int) Math.abs(lineVal - lineComp) * 10;
         }
     }
 

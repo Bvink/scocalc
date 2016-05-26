@@ -1,7 +1,5 @@
 package wildtornado.scocalc.objects;
 
-import wildtornado.scocalc.strategies.*;
-
 public class Score {
 
     private int codeDuplicationScore;
@@ -11,58 +9,51 @@ public class Score {
     private int technicalDebtScore;
     private int testCoverageScore;
 
-
-    public void calculateCodeDuplicationScore(double codeDuplicationScore, double codeDuplicationComparison, double codeDuplicationDensity) {
-        Calculator calc = new CodeDuplicationCalculator(codeDuplicationScore, codeDuplicationComparison, codeDuplicationDensity);
-        this.codeDuplicationScore = calc.run();
-    }
-
     public int getCodeDuplicationScore() {
         return codeDuplicationScore;
     }
 
-    public void calculateCodeViolationsScore(double codeViolationsScore, double codeViolationsComparison) {
-        Calculator calc = new CodeViolationsCalculator(codeViolationsScore, codeViolationsComparison);
-        this.codeViolationsScore = calc.run();
+    public void setCodeDuplicationScore(int codeDuplicationScore) {
+        this.codeDuplicationScore = codeDuplicationScore;
     }
 
     public int getCodeViolationsScore() {
         return codeViolationsScore;
     }
 
-    public void calculateCommentPercentageScore(double commentPercentageScore, double commentLinesScore, double commentLinesComparison, double commentedOutCodeLines, double commentedOutCodeLinesComparison) {
-        Calculator calc = new CommentCalculator(commentPercentageScore, commentLinesScore, commentLinesComparison, commentedOutCodeLines, commentedOutCodeLinesComparison);
-        this.commentScore = calc.run();
+    public void setCodeViolationsScore(int codeViolationsScore) {
+        this.codeViolationsScore = codeViolationsScore;
     }
 
     public int getCommentScore() {
         return commentScore;
     }
 
-    public void calculateLinesOfCodeScore(double linesOfCodeScore, double linesOfCodeComparison) {
-        Calculator calc = new LinesOfCodeCalculator(linesOfCodeScore, linesOfCodeComparison);
-        this.linesOfCodeScore = calc.run();
+    public void setCommentScore(int commentScore) {
+        this.commentScore = commentScore;
     }
 
     public int getLinesOfCodeScore() {
         return linesOfCodeScore;
     }
 
-    public void calculateTechnicalDebtScore(double technicalDebtScore, double technicalDebtComparison) {
-        Calculator calc = new TechnicalDebtCalculator(technicalDebtScore, technicalDebtComparison);
-        this.technicalDebtScore = calc.run();
+    public void setLinesOfCodeScore(int linesOfCodeScore) {
+        this.linesOfCodeScore = linesOfCodeScore;
     }
 
     public int getTechnicalDebtScore() {
         return technicalDebtScore;
     }
 
-    public void calculateTestCoverageScore(double testCoverage, double testAmountScore, double testAmountComparison, double testErrorScore, double testErrorComparison, double testFailureScore, double testFailureComparison) {
-        Calculator calc = new TestCoverageCalculator(testCoverage, testAmountScore, testAmountComparison, testErrorScore, testErrorComparison, testFailureScore, testFailureComparison);
-        this.testCoverageScore = calc.run();
+    public void setTechnicalDebtScore(int technicalDebtScore) {
+        this.technicalDebtScore = technicalDebtScore;
     }
 
     public int getTestCoverageScore() {
         return testCoverageScore;
+    }
+
+    public void setTestCoverageScore(int testCoverageScore) {
+        this.testCoverageScore = testCoverageScore;
     }
 }

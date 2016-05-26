@@ -1,20 +1,23 @@
 package wildtornado.scocalc.strategies;
 
+import wildtornado.scocalc.objects.DataInput;
+
 public class CommentCalculator extends BaseCalculator {
 
+    private double percentageVal;
     private double lineVal;
     private double lineComp;
 
-    public CommentCalculator(double val, double lineVal, double lineComp, double codeLineVal, double codeLineValComp) {
-        this.val = val;
-        this.lineVal = lineVal - codeLineVal;
-        this.lineComp = lineComp - codeLineValComp;
+    public CommentCalculator(DataInput dp, DataInput comp) {
+        this.percentageVal = dp.getCommentPercentage();
+        this.lineVal = dp.getCommentLines() - dp.getCommentedOutCodeLines();
+        this.lineComp = comp.getCommentLines() - comp.getCommentedOutCodeLines();
     }
 
     public void generate() {
         if (lineVal != lineComp
-                && val >= 10
-                && val <= 20) {
+                && percentageVal >= 10
+                && percentageVal <= 20) {
             int temp = (int) ((lineVal - lineComp) * 50);
             putScoreWithinBounds(temp);
         } else {

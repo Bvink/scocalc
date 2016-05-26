@@ -7,13 +7,13 @@ public class JenkyCompany extends BaseCompany {
 
     public JenkyCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
-        this.comparison = comparison;
+        this.comp = comparison;
     }
 
     public Score generateScore() {
-        CalculateCodeDuplicationDensity();
-        CalculateCodeViolationsDensity();
-        CalculateCommentsPercentage();
+        CalculateCodeDuplication();
+        CalculateCodeViolations();
+        CalculateComments();
         CalculateLinesOfCode();
         return score;
     }

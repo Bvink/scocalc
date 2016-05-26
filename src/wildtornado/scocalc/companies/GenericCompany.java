@@ -7,13 +7,13 @@ public class GenericCompany extends BaseCompany {
 
     public GenericCompany(DataInput dp, DataInput comparison) {
         this.dp = dp;
-        this.comparison = comparison;
+        this.comp = comparison;
     }
 
     public Score generateScore() {
-        CalculateCodeDuplicationDensity();
-        CalculateCodeViolationsDensity();
-        CalculateCommentsPercentage();
+        CalculateCodeDuplication();
+        CalculateCodeViolations();
+        CalculateComments();
         CalculateLinesOfCode();
         CalculateTechnicalDebt();
         CalculateTestCoverage();
