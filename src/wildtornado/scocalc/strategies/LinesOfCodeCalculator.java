@@ -11,7 +11,7 @@ public class LinesOfCodeCalculator extends BaseCalculator {
         this.lineVal = dp.getLinesOfCode();
         this.lineComp = comp.getLinesOfCode();
 
-        this.score = 20;
+        this.score = 10;
     }
 
     public void generate() {

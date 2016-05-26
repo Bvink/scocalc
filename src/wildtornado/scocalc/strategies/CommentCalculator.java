@@ -13,6 +13,7 @@ public class CommentCalculator extends BaseCalculator {
         this.lineVal = dp.getCommentLines() - dp.getCommentedOutCodeLines();
         this.lineComp = comp.getCommentLines() - comp.getCommentedOutCodeLines();
 
+        this.score = 50;
         this.minimumAmount = 10;
         this.maximumAmount = 20;
         this.bonusAmount = 5;
