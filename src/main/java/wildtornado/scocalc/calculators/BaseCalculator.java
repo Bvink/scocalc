@@ -1,7 +1,5 @@
 package wildtornado.scocalc.calculators;
 
-import wildtornado.scocalc.objects.DataInput;
-
 public abstract class BaseCalculator implements Calculator {
 
     protected static final int MIN_SCORE = 0;
@@ -12,11 +10,6 @@ public abstract class BaseCalculator implements Calculator {
     protected int minimumAmount;
     protected int maximumAmount;
     protected int bonusAmount;
-
-    @Override
-    public int generate(DataInput dp, DataInput comp) {
-        return MAX_SCORE;
-    }
 
     @Override
     public int putScoreWithinBounds(int temp) {

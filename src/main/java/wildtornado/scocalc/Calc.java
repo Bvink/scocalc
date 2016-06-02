@@ -4,7 +4,7 @@ import wildtornado.scocalc.companies.Company;
 import wildtornado.scocalc.companies.GenericCompany;
 import wildtornado.scocalc.companies.JenkyCompany;
 import wildtornado.scocalc.companies.MinimumCompany;
-import wildtornado.scocalc.constants.Constants;
+import wildtornado.scocalc.constants.Companies;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
 
@@ -18,11 +18,11 @@ public class Calc {
 
     private Company determineCompany(DataInput dp, DataInput comp) {
         switch (dp.getCompanyID()) {
-            case Constants.GENERIC_COMPANY:
+            case Companies.GENERIC_COMPANY:
                 return new GenericCompany(dp, comp);
-            case Constants.JENKY_COMPANY:
+            case Companies.JENKY_COMPANY:
                 return new JenkyCompany(dp, comp);
-            case Constants.MINIMUM_COMPANY:
+            case Companies.MINIMUM_COMPANY:
                 return new MinimumCompany(dp, comp);
             default:
                 return new GenericCompany(dp, comp);
