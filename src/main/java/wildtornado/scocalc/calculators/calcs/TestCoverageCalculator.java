@@ -1,5 +1,6 @@
-package wildtornado.scocalc.calculators;
+package wildtornado.scocalc.calculators.calcs;
 
+import wildtornado.scocalc.calculators.BaseCalculator;
 import wildtornado.scocalc.objects.DataInput;
 
 public class TestCoverageCalculator extends BaseCalculator {

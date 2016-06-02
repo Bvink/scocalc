@@ -1,9 +1,7 @@
 package wildtornado.scocalc;
 
 import wildtornado.scocalc.companies.Company;
-import wildtornado.scocalc.companies.GenericCompany;
-import wildtornado.scocalc.companies.JenkyCompany;
-import wildtornado.scocalc.companies.MinimumCompany;
+import wildtornado.scocalc.companies.comps.*;
 import wildtornado.scocalc.constants.Companies;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;

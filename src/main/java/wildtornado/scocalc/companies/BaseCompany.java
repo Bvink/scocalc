@@ -1,6 +1,7 @@
 package wildtornado.scocalc.companies;
 
 import wildtornado.scocalc.calculators.*;
+import wildtornado.scocalc.calculators.calcs.*;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
 
