@@ -58,4 +58,10 @@ public abstract class BaseCompany implements Company {
         score.setAverageScore(val);
     }
 
+    @Override
+    public void calculateCoins(int coinDivider) {
+        int val = (int) Math.floor(score.getAverageScore() / coinDivider);
+        score.setCoinsEarned(val);
+    }
+
 }

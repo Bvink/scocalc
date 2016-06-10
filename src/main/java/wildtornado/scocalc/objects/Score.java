@@ -10,6 +10,7 @@ public class Score {
     private int testCoverageScore;
     private int totalScore;
     private int averageScore;
+    private int coinsEarned;
 
     public int getCodeDuplicationScore() {
         return codeDuplicationScore;
@@ -81,6 +82,14 @@ public class Score {
 
     public void setAverageScore(int averageScore) {
         this.averageScore = averageScore;
+        this.coinsEarned = (int) Math.floor(averageScore / 100);
     }
 
+    public int getCoinsEarned() {
+        return coinsEarned;
+    }
+
+    public void setCoinsEarned(int coinsEarned) {
+        this.coinsEarned = coinsEarned;
+    }
 }

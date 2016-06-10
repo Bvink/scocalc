@@ -20,4 +20,6 @@ public interface Company {
 
     public void calculateAverageScore(int metricAmount);
 
+    public void calculateCoins(int coinDivider);
+
 }
