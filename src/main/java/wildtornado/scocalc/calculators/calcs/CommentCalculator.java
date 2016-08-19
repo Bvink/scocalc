@@ -1,15 +1,16 @@
 package wildtornado.scocalc.calculators.calcs;
 
+import org.junit.Assert;
+import org.junit.Test;
 import wildtornado.scocalc.calculators.BaseCalculator;
 import wildtornado.scocalc.objects.DataInput;
 
 public class CommentCalculator extends BaseCalculator {
 
     public CommentCalculator() {
-        this.score = 50;
+        this.score = 10;
         this.minimumAmount = 10;
         this.maximumAmount = 20;
-        this.bonusAmount = 5;
     }
 
     @Override
@@ -29,6 +30,24 @@ public class CommentCalculator extends BaseCalculator {
             result = MIN_SCORE;
         }
         return result;
+    }
+
+    /**
+     * Test if the correct amount of points is assigned.
+     */
+
+    @Test
+    public void testCalculation() {
+        DataInput dp = new DataInput();
+        DataInput comp = new DataInput();
+
+        dp.setCommentLines(100);
+        comp.setCommentLines(50);
+        dp.setCommentPercentage(15);
+
+        System.out.println(generate(dp, comp));
+
+        Assert.assertTrue(generate(dp, comp) == (dp.getCommentLines() - comp.getCommentLines()) * this.score);
     }
 
 }

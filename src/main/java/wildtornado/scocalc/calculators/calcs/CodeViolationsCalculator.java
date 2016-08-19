@@ -1,5 +1,7 @@
 package wildtornado.scocalc.calculators.calcs;
 
+import junit.framework.Assert;
+import org.junit.Test;
 import wildtornado.scocalc.calculators.BaseCalculator;
 import wildtornado.scocalc.objects.DataInput;
 
@@ -40,6 +42,40 @@ public class CodeViolationsCalculator extends BaseCalculator {
 
     private int calcPartialScore(double val, double comp, int score) {
         return val < comp ? (int) (Math.abs(val - comp) * score) : MIN_SCORE;
+    }
+
+    /**
+     * Test if the correct amount of points is assigned.
+     */
+
+    @Test
+    public void testCriticalCalculation() {
+        DataInput dp = new DataInput();
+        DataInput comp = new DataInput();
+
+        dp.setCriticalViolations(0);
+        comp.setCriticalViolations(1);
+        Assert.assertTrue(generate(dp, comp) == this.score + 150);
+    }
+
+    @Test
+    public void testMajorCalculation() {
+        DataInput dp = new DataInput();
+        DataInput comp = new DataInput();
+
+        dp.setMajorViolations(0);
+        comp.setMajorViolations(1);
+        Assert.assertTrue(generate(dp, comp) == this.score + 75);
+    }
+
+    @Test
+    public void testMinorCalculation() {
+        DataInput dp = new DataInput();
+        DataInput comp = new DataInput();
+
+        dp.setMinorViolations(0);
+        comp.setMinorViolations(1);
+        Assert.assertTrue(generate(dp, comp) == this.score);
     }
 
 }

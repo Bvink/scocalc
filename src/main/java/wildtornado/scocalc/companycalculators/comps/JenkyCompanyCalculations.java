@@ -1,15 +1,15 @@
-package wildtornado.scocalc.companies.comps;
+package wildtornado.scocalc.companycalculators.comps;
 
-import wildtornado.scocalc.companies.BaseCompany;
+import wildtornado.scocalc.companycalculators.BaseCompanyCalculations;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
 
-public class GenericCompany extends BaseCompany {
+public class JenkyCompanyCalculations extends BaseCompanyCalculations {
 
-    private static final int METRIC_AMOUNT = 6;
+    private static final int METRIC_AMOUNT = 4;
     private static final int COIN_DIVIDER = 100;
 
-    public GenericCompany(DataInput dp, DataInput comparison) {
+    public JenkyCompanyCalculations(DataInput dp, DataInput comparison) {
         this.dp = dp;
         this.comp = comparison;
     }
@@ -20,11 +20,8 @@ public class GenericCompany extends BaseCompany {
         calculateCodeViolations();
         calculateComments();
         calculateLinesOfCode();
-        calculateTechnicalDebt();
-        calculateTestCoverage();
         calculateAverageScore(METRIC_AMOUNT);
         calculateCoins(COIN_DIVIDER);
         return score;
     }
-
 }

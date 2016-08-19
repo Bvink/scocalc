@@ -1,8 +1,8 @@
-package wildtornado.scocalc.companies;
+package wildtornado.scocalc.companycalculators;
 
 import wildtornado.scocalc.objects.Score;
 
-public interface Company {
+public interface CompanyCalculations {
 
     public Score generateScore();
 

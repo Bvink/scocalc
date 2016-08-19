@@ -17,9 +17,7 @@ public class Score {
     }
 
     public void setCodeDuplicationScore(int codeDuplicationScore) {
-        this.totalScore -= this.codeDuplicationScore;
-        this.codeDuplicationScore = codeDuplicationScore;
-        this.totalScore += codeDuplicationScore;
+        this.codeDuplicationScore = updateScore(this.codeDuplicationScore, codeDuplicationScore);
     }
 
     public int getCodeViolationsScore() {
@@ -27,9 +25,7 @@ public class Score {
     }
 
     public void setCodeViolationsScore(int codeViolationsScore) {
-        this.totalScore -= this.codeViolationsScore;
-        this.codeViolationsScore = codeViolationsScore;
-        this.totalScore += codeViolationsScore;
+        this.codeViolationsScore = updateScore(this.codeViolationsScore, codeViolationsScore);
     }
 
     public int getCommentScore() {
@@ -37,9 +33,7 @@ public class Score {
     }
 
     public void setCommentScore(int commentScore) {
-        this.totalScore -= this.commentScore;
-        this.commentScore = commentScore;
-        this.totalScore += commentScore;
+        this.commentScore = updateScore(this.commentScore, commentScore);
     }
 
     public int getLinesOfCodeScore() {
@@ -47,9 +41,7 @@ public class Score {
     }
 
     public void setLinesOfCodeScore(int linesOfCodeScore) {
-        this.totalScore -= this.linesOfCodeScore;
-        this.linesOfCodeScore = linesOfCodeScore;
-        this.totalScore += linesOfCodeScore;
+        this.linesOfCodeScore = updateScore(this.linesOfCodeScore, linesOfCodeScore);
     }
 
     public int getTechnicalDebtScore() {
@@ -57,9 +49,7 @@ public class Score {
     }
 
     public void setTechnicalDebtScore(int technicalDebtScore) {
-        this.totalScore -= this.technicalDebtScore;
-        this.technicalDebtScore = technicalDebtScore;
-        this.totalScore += technicalDebtScore;
+        this.technicalDebtScore = updateScore(this.technicalDebtScore, technicalDebtScore);
     }
 
     public int getTestCoverageScore() {
@@ -67,9 +57,7 @@ public class Score {
     }
 
     public void setTestCoverageScore(int testCoverageScore) {
-        this.totalScore -= this.testCoverageScore;
-        this.testCoverageScore = testCoverageScore;
-        this.totalScore += testCoverageScore;
+        this.testCoverageScore = updateScore(this.testCoverageScore, testCoverageScore);
     }
 
     public int getTotalScore() {
@@ -91,5 +79,11 @@ public class Score {
 
     public void setCoinsEarned(int coinsEarned) {
         this.coinsEarned = coinsEarned;
+    }
+
+    private int updateScore(int originalScore, int newScore) {
+        this.totalScore -= originalScore;
+        this.totalScore += newScore;
+        return newScore;
     }
 }

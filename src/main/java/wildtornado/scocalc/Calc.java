@@ -1,33 +1,50 @@
 package wildtornado.scocalc;
 
-import wildtornado.scocalc.companies.Company;
-import wildtornado.scocalc.companies.comps.*;
-import wildtornado.scocalc.constants.Companies;
+import wildtornado.scocalc.companycalculators.CompanyCalculations;
+import wildtornado.scocalc.companycalculators.companyCalculationsFactory;
+import wildtornado.scocalc.constants.Constants;
+import wildtornado.scocalc.enums.CompanyId;
 import wildtornado.scocalc.objects.DataInput;
 import wildtornado.scocalc.objects.Score;
 
 public class Calc {
 
-    private Company company;
+    private CompanyCalculations companyCalculations;
+
+    private final companyCalculationsFactory CC_FACTORY = new companyCalculationsFactory();
 
     public Calc(DataInput dp, DataInput comparison) {
-        this.company = determineCompany(dp, comparison);
+        this.companyCalculations = determineCompany(dp, comparison);
     }
 
-    private Company determineCompany(DataInput dp, DataInput comp) {
-        switch (dp.getCompanyID()) {
-            case Companies.GENERIC_COMPANY:
-                return new GenericCompany(dp, comp);
-            case Companies.JENKY_COMPANY:
-                return new JenkyCompany(dp, comp);
-            case Companies.MINIMUM_COMPANY:
-                return new MinimumCompany(dp, comp);
+    private CompanyCalculations determineCompany(DataInput dp, DataInput comp) {
+
+        switch (determineCompanyID(dp.getCompanyID())) {
+            case GENERIC_COMPANY:
+                return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
+            case JENKY_COMPANY:
+                return obtainCompanyCalculations(Constants.JENKY_COMPANY, dp, comp);
+            case MINIMUM_COMPANY:
+                return obtainCompanyCalculations(Constants.MINIMUM_COMPANY, dp, comp);
             default:
-                return new GenericCompany(dp, comp);
+                return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
         }
     }
 
     public Score generateScore() {
-        return this.company.generateScore();
+        return this.companyCalculations.generateScore();
+    }
+
+    private CompanyId determineCompanyID(int id) {
+        for (CompanyId cID : CompanyId.values()) {
+            if (cID.getCompanyID() == id) {
+                return cID;
+            }
+        }
+        return null;
+    }
+
+    private CompanyCalculations obtainCompanyCalculations(String s, DataInput dp, DataInput comp) {
+        return CC_FACTORY.newInstance(s, dp, comp);
     }
 }
