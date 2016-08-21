@@ -9,30 +9,22 @@ import wildtornado.scocalc.objects.Score;
 
 public class Calc {
 
-    private CompanyCalculations companyCalculations;
-
     private final companyCalculationsFactory CC_FACTORY = new companyCalculationsFactory();
 
-    public Calc(DataInput dp, DataInput comparison) {
-        this.companyCalculations = determineCompany(dp, comparison);
+    public Score generateScore(DataInput dp, DataInput comp) {
+        CompanyCalculations companyCalculations = determineCompany(dp, comp);
+        return companyCalculations.generateScore();
     }
 
-    private CompanyCalculations determineCompany(DataInput dp, DataInput comp) {
+        private CompanyCalculations determineCompany(DataInput dp, DataInput comp) {
 
-        switch (determineCompanyID(dp.getCompanyID())) {
-            case GENERIC_COMPANY:
-                return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
-            case JENKY_COMPANY:
-                return obtainCompanyCalculations(Constants.JENKY_COMPANY, dp, comp);
-            case MINIMUM_COMPANY:
-                return obtainCompanyCalculations(Constants.MINIMUM_COMPANY, dp, comp);
-            default:
-                return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
-        }
-    }
-
-    public Score generateScore() {
-        return this.companyCalculations.generateScore();
+            CompanyId id = determineCompanyID(dp.getCompanyID());
+            try {
+                return obtainCompanyCalculations(id.getName(), dp, comp);
+            } catch(Exception e) {
+                System.out.println("The company doesn't exist, using a generic company instead.");
+            }
+            return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
     }
 
     private CompanyId determineCompanyID(int id) {
