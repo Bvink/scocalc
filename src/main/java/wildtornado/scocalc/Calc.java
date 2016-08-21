@@ -16,15 +16,15 @@ public class Calc {
         return companyCalculations.generateScore();
     }
 
-        private CompanyCalculations determineCompany(DataInput dp, DataInput comp) {
+    private CompanyCalculations determineCompany(DataInput dp, DataInput comp) {
 
-            CompanyId id = determineCompanyID(dp.getCompanyID());
-            try {
-                return obtainCompanyCalculations(id.getName(), dp, comp);
-            } catch(Exception e) {
-                System.out.println("The company doesn't exist, using a generic company instead.");
-            }
-            return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
+        CompanyId id = determineCompanyID(dp.getCompanyID());
+        try {
+            return obtainCompanyCalculations(id.getName(), dp, comp);
+        } catch (Exception e) {
+            System.out.println("The company doesn't exist, using a generic company instead.");
+        }
+        return obtainCompanyCalculations(Constants.GENERIC_COMPANY, dp, comp);
     }
 
     private CompanyId determineCompanyID(int id) {
